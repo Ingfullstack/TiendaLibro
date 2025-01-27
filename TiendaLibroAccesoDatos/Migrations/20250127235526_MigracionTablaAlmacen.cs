@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace TiendaLibroAccesoDatos.Data.Migrations
+namespace TiendaLibroAccesoDatos.Migrations
 {
     /// <inheritdoc />
     public partial class MigracionTablaAlmacen : Migration
@@ -18,7 +18,7 @@ namespace TiendaLibroAccesoDatos.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
-                    Descripcion = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Descripcion = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
                     Estado = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>

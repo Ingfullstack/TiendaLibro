@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 using TiendaLibro.Modelo.Models;
 
 namespace TiendaLibro.AccesoDatos.Data
@@ -12,5 +13,11 @@ namespace TiendaLibro.AccesoDatos.Data
         }
 
         public DbSet<Almacen> Almacen { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        }
     }
 }

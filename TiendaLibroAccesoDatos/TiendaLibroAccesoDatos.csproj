@@ -19,4 +19,8 @@
     <ProjectReference Include="..\TiendaLibro.Modelo\TiendaLibro.Modelo.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
+  </ItemGroup>
+
 </Project>
