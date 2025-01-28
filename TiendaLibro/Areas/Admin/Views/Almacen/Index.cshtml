@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Almacen>
+@{
+    ViewData["Title"] = "Lista de Almacen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-xl">
+    <h1 class="text-center mt-4 fw-bold">Lista de Almacenes</h1>
+    <div class="d-flex justify-content-md-end my-3 justify-content-center">
+        <a asp-area="Admin" asp-controller="Almacen" asp-action="Agregar" class="btn btn-primary">Nuevo Almacen</a>
+    </div>
+    <div class="row">
+        <div class="col-12 p-0">
+            <div class="table-responsive">
+                <table id="tblDatos" class="table table-striped border w-100 shadow">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Almacen</th>
+                            <th>Descripcion</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/almacen.js"></script>
+}
+
