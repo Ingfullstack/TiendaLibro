@@ -13,6 +13,7 @@ namespace TiendaLibro.AccesoDatos.Data
         }
 
         public DbSet<Almacen> Almacen { get; set; }
+        public DbSet<Categoria> Categorias { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

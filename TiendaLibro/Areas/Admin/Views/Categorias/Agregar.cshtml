@@ -1,6 +1,6 @@
-﻿@model Almacen
+﻿@model Categoria
 @{
-    ViewData["Title"] = "Crear Almacen";
+    ViewData["Title"] = "Crear Categoria";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -9,7 +9,7 @@
         <div class="col-12 col-md-8">
             <div class="card">
                 <div class="card-header bg-dark py-5 bg-gradient">
-                    <h2 class="text-center text-white fw-bold">Nuevo Almacen</h2>
+                    <h2 class="text-center text-white fw-bold">Nueva Categoria</h2>
                 </div>
                 <div class="card-body">
                     <form method="post">
@@ -18,14 +18,14 @@
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label asp-for="Nombre" class="text-uppercase fw-bold text-muted"></label>
-                                    <input type="text" asp-for="Nombre" class="form-control" placeholder="Nombre del almacen" />
+                                    <input type="text" asp-for="Nombre" class="form-control" placeholder="Nombre de categoria" />
                                     <span asp-validation-for="Nombre" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label asp-for="Descripcion" class="text-uppercase fw-bold text-muted"></label>
-                                    <input type="text" asp-for="Descripcion" class="form-control" placeholder="Descripcion del almacen" />
+                                    <input type="text" asp-for="Descripcion" class="form-control" placeholder="Descripcion de categoria" />
                                     <span asp-validation-for="Descripcion" class="text-danger"></span>
                                 </div>
                             </div>

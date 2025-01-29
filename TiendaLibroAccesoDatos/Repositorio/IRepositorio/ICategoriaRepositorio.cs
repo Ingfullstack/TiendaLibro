@@ -7,10 +7,9 @@ using TiendaLibro.Modelo.Models;
 
 namespace TiendaLibroAccesoDatos.Repositorio.IRepositorio
 {
-    public interface IUnidadTrabajo : IDisposable
+    public interface ICategoriaRepositorio : IRepositorio<Categoria>
     {
-        IAlmacenRepositorio Almacen { get; }
-        ICategoriaRepositorio Categoria { get; }
-        Task Guardar();
+        Task ActualizarCategoria(Categoria categoria);
+        Task<bool> ExisteCategoria(string nombre);
     }
 }

@@ -1,13 +1,13 @@
-﻿@model IEnumerable<Almacen>
+﻿@model IEnumerable<Categoria>
 @{
-    ViewData["Title"] = "Lista de Almacen";
+    ViewData["Title"] = "Lista de Categoriaa";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="container-xl">
-    <h1 class="text-center mt-4 fw-bold">Lista de Almacenes</h1>
+    <h1 class="text-center mt-4 fw-bold">Lista de Categorias</h1>
     <div class="d-flex justify-content-md-end my-3 justify-content-center">
-        <a asp-area="Admin" asp-controller="Almacen" asp-action="Agregar" class="btn btn-primary"> <i class="bi bi-plus-circle"></i> Nuevo Almacen</a>
+        <a asp-area="Admin" asp-controller="Categorias" asp-action="Agregar" class="btn btn-primary"> <i class="bi bi-plus-circle"></i> Nueva Categoria</a>
     </div>
     <div class="row">
         <div class="col-12 p-0">
@@ -15,7 +15,7 @@
                 <table id="tblDatos" class="table table-striped border w-100 shadow">
                     <thead class="table-dark">
                         <tr>
-                            <th>Almacen</th>
+                            <th>Categoria</th>
                             <th>Descripcion</th>
                             <th>Estado</th>
                             <th>Acciones</th>
@@ -28,6 +28,6 @@
 </div>
 
 @section Scripts {
-    <script src="~/js/almacen.js"></script>
+    <script src="~/js/categoria.js"></script>
 }
 

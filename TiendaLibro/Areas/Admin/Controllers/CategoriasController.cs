@@ -5,11 +5,11 @@ using TiendaLibroAccesoDatos.Repositorio.IRepositorio;
 namespace TiendaLibro.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class AlmacenController : Controller
+    public class CategoriasController : Controller
     {
         private readonly IUnidadTrabajo unidadTrabajo;
 
-        public AlmacenController(IUnidadTrabajo unidadTrabajo)
+        public CategoriasController(IUnidadTrabajo unidadTrabajo)
         {
             this.unidadTrabajo = unidadTrabajo;
         }
@@ -23,30 +23,30 @@ namespace TiendaLibro.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Agregar()
         {
-            Almacen almacen = new Almacen()
+            Categoria categoria = new Categoria()
             {
                 Estado = true
             };
-            return View(almacen);
+            return View(categoria);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Agregar(Almacen almacen)
+        public async Task<IActionResult> Agregar(Categoria categoria)
         {
-            var existeAlmacen = await unidadTrabajo.Almacen.ExisteAlmacen(almacen.Nombre);
-            if (existeAlmacen)
+            var existeCategoria = await unidadTrabajo.Categoria.ExisteCategoria(categoria.Nombre);
+            if (existeCategoria)
             {
-                ModelState.AddModelError("nombre", "El almacen ya existe");
-                TempData["error"] = "Almacen Existe";
+                ModelState.AddModelError("nombre", "La categoria ya existe");
+                TempData["error"] = "Categoria Existe";
             }
 
             if (ModelState.IsValid)
             {
-                await unidadTrabajo.Almacen.Agregar(almacen);
+                await unidadTrabajo.Categoria.Agregar(categoria);
                 await unidadTrabajo.Guardar();
-                TempData["success"] = "Almacen Creado";
-                return RedirectToAction("Index","Almacen");
+                TempData["success"] = "Categoria Creada";
+                return RedirectToAction("Index","Categorias");
             }
             return View();
         }
@@ -58,24 +58,24 @@ namespace TiendaLibro.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            var almacen = await unidadTrabajo.Almacen.Obtener(id.GetValueOrDefault());
-            if (almacen is null)
+            var categoria = await unidadTrabajo.Categoria.Obtener(id.GetValueOrDefault());
+            if (categoria is null)
             {
                 return NotFound();
             }
-            return View(almacen);
+            return View(categoria);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Editar(Almacen almacen)
+        public async Task<IActionResult> Editar(Categoria categoria)
         {
             if (ModelState.IsValid)
             {
-                await unidadTrabajo.Almacen.ActualizarAlmacen(almacen);
+                await unidadTrabajo.Categoria.ActualizarCategoria(categoria);
                 await unidadTrabajo.Guardar();
-                TempData["success"] = "Almacen Actualizado";
-                return RedirectToAction("Index", "Almacen");
+                TempData["success"] = "Categoria Actualizada";
+                return RedirectToAction("Index", "Categorias");
             }
             return View();
         }
@@ -84,7 +84,7 @@ namespace TiendaLibro.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> ObtenerTodos()
         {
-            var todos = await unidadTrabajo.Almacen.ObtenerTodos();
+            var todos = await unidadTrabajo.Categoria.ObtenerTodos();
             return Json(new { data = todos });
         }
 
@@ -93,17 +93,17 @@ namespace TiendaLibro.Areas.Admin.Controllers
         {
             if (id is null || id == 0)
             {
-                return Json(new { success = false, message = " No existe el almacen" });
+                return Json(new { success = false, message = " No existe la categoria" });
             }
-            var almacen = await unidadTrabajo.Almacen.Obtener(id.GetValueOrDefault());
+            var categoria = await unidadTrabajo.Categoria.Obtener(id.GetValueOrDefault());
 
-            if (almacen is null)
+            if (categoria is null)
             {
                 return Json(new { success = false, message = " Error al eliminar" });
             }
-            unidadTrabajo.Almacen.Eliminar(almacen);
+            unidadTrabajo.Categoria.Eliminar(categoria);
             await unidadTrabajo.Guardar();
-            return Json(new { success = true, message = "Almacen Eliminado"});
+            return Json(new { success = true, message = "Categoria Eliminada"});
         }
         #endregion
     }

@@ -1,6 +1,6 @@
-﻿@model Almacen
+﻿@model Categoria
 @{
-    ViewData["Title"] = "Crear Almacen";
+    ViewData["Title"] = "Actualizar Categoria";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -9,23 +9,23 @@
         <div class="col-12 col-md-8">
             <div class="card">
                 <div class="card-header bg-dark py-5 bg-gradient">
-                    <h2 class="text-center text-white fw-bold">Nuevo Almacen</h2>
+                    <h2 class="text-center text-white fw-bold">Actualizar Categoria</h2>
                 </div>
                 <div class="card-body">
                     <form method="post">
                         <div asp-validation-summary="ModelOnly"></div>
-                        <div class="row p-2">
+                        <div class="row">
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label asp-for="Nombre" class="text-uppercase fw-bold text-muted"></label>
-                                    <input type="text" asp-for="Nombre" class="form-control" placeholder="Nombre del almacen" />
+                                    <input type="text" asp-for="Nombre" class="form-control" placeholder="Nombre de categoria" />
                                     <span asp-validation-for="Nombre" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label asp-for="Descripcion" class="text-uppercase fw-bold text-muted"></label>
-                                    <input type="text" asp-for="Descripcion" class="form-control" placeholder="Descripcion del almacen" />
+                                    <input type="text" asp-for="Descripcion" class="form-control" placeholder="Descripcion de categoria" />
                                     <span asp-validation-for="Descripcion" class="text-danger"></span>
                                 </div>
                             </div>
@@ -42,7 +42,7 @@
                             </div>
                             <div class="col-12 col-sm-4 mb-3 mb-sm-0">
                                 <button class="btn btn-primary w-100">
-                                    <i class="bi bi-check-circle"></i> Guardar
+                                    <i class="bi bi-check-circle"></i> Guardar Cambios
                                 </button>
                             </div>
                             <div class="col-12 col-sm-4">
@@ -58,7 +58,7 @@
     </div>
 </div>
 
-@section Scripts{
+@section Scripts {
     <partial name="_ValidationScriptsPartial"></partial>
 }
 
